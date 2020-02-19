@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
   include CommentsHelper
+  before_action :require_login, except: [:create]
+
   def new
     @comment = Comment.new
   end
